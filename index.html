@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Off-Grid 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --accent: #c7493a;
+            --accent-light: #d67265;
+            --background: #fafaf8;
+            --surface: #ffffff;
+            --text: #2d2d2d;
+            --text-secondary: #666666;
+            --border: #e0e0e0;
+            --shadow: rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Pro', serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 17px;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.0rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'IBM Plex Mono', monospace;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-logo-img {
+            height: 36px;
+            width: auto;
+            flex-shrink: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 60px;
+            padding: 4rem 2rem 3rem;
+            background: var(--primary);
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            margin-bottom: 0.75rem;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            font-weight: 300;
+        }
+
+        .hero-meta {
+            margin-top: 2rem;
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .meta-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        section {
+            margin-bottom: 3.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.25rem;
+            color: var(--primary);
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Important Dates Box */
+        .dates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+
+        .date-card {
+            background: var(--surface);
+            padding: 1.25rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            transition: box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .date-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .date-card:hover {
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .date-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .date-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .date-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Committee Grid */
+        .committee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+
+        .person-card {
+            text-align: center;
+            padding: 1.5rem 1rem 1.25rem;
+            background: var(--surface);
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .person-card:hover {
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        /* Round avatar for committee members */
+        .person-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 0.85rem;
+            overflow: hidden;
+            box-shadow: 0 2px 8px var(--shadow);
+            border: 2px solid var(--border);
+        }
+
+        .person-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Fallback initials avatar */
+        .person-avatar-initials {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: white;
+            letter-spacing: 0.02em;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .person-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .person-affiliation {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .person-links {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .person-links a {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            opacity: 0.6;
+        }
+
+        .person-links a:hover {
+            opacity: 1;
+        }
+
+        .person-links a.google-scholar:hover {
+            color: #4285f4;
+        }
+
+        .person-links a.linkedin:hover {
+            color: #0077b5;
+        }
+
+        .person-links a.orcid:hover {
+            color: #a6ce39;
+        }
+
+        /* Submission Guidelines */
+        .submission-box {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            margin-top: 1.25rem;
+        }
+
+        .submission-box a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .submission-box a:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        .submission-box .cta-button {
+            color: white;
+        }
+
+        .submission-box ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .submission-box li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.6rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .submission-box li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Call-to-action Button */
+        .cta-button {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: background 0.2s ease;
+            font-size: 0.95rem;
+        }
+
+        .cta-button:hover {
+            background: var(--accent-light);
+        }
+
+        /* Topics List — Vertical list layout */
+        .topics-list {
+            margin-top: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .topic-item {
+            padding: 0.9rem 0 0.9rem 1.25rem;
+            border-left: 2px solid var(--border);
+            transition: border-color 0.2s ease;
+        }
+
+        .topic-item:hover {
+            border-left-color: var(--accent);
+        }
+
+        .topic-title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .topic-description {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin-bottom: 0;
+        }
+
+        /* Keynote Speaker Card */
+        .keynote-card {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .keynote-image {
+            flex-shrink: 0;
+            width: 140px;
+            height: 140px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .keynote-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .keynote-info {
+            flex: 1;
+        }
+
+        .keynote-info h3 {
+            margin-top: 0;
+        }
+
+        .keynote-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .keynote-links a {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            opacity: 0.6;
+        }
+
+        .keynote-links a:hover {
+            opacity: 1;
+        }
+
+        .keynote-links a.google-scholar:hover {
+            color: #4285f4;
+        }
+
+        .keynote-links a.linkedin:hover {
+            color: #0077b5;
+        }
+
+        .keynote-links a.website:hover {
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 2.5rem 2rem 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-content p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .container {
+                padding: 2.5rem 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .keynote-card {
+                flex-direction: column;
+            }
+
+            .keynote-image {
+                width: 120px;
+                height: 120px;
+            }
+
+            .nav-logo-img {
+                height: 28px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="nav-container">
+        <div class="logo">Off-Grid Workshop - MICCAI 2026</div>
+        <ul class="nav-links">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#dates">Important Dates</a></li>
+            <li><a href="#submission">Submission</a></li>
+            <li><a href="#program">Program</a></li>
+            <li><a href="#committee">Organizers</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="https://conferences.miccai.org/2026/" target="_blank">
+            <img src="media/miccai2026-logo.png" alt="MICCAI 2026" class="nav-logo-img">
+        </a>
+    </div>
+</nav>
+
+<div class="hero">
+    <div class="hero-content">
+        <div class="hero-label">MICCAI 2026 Workshop</div>
+        <h1>Off-Grid: 1st Workshop on Continuous Representations and Grid-Free Methods in Medical Imaging</h1>
+        <div class="hero-meta">
+            <div class="meta-item">
+                <span class="meta-label">Date</span>
+                <span class="meta-value">TBA, October 2026</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Location</span>
+                <span class="meta-value">Abu Dhabi, United Arab Emirates</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Room</span>
+                <span class="meta-value">TBA</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Time</span>
+                <span class="meta-value">TBA</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <section id="overview">
+        <h2>Workshop Scope</h2>
+        <p>Medical imaging has long relied on discrete, grid-based representations that impose artificial constraints on inherently continuous anatomical structures. This workshop aims to explore "<strong>off-grid</strong>" approaches, from Implicit Neural Representations to Gaussian Splats, ultimately advancing medical image computing and computer assisted intervention.</p>
+
+        <h3>Topics of Interest</h3>
+        <p>We welcome submissions on a wide range of "off-grid" methods, including but not limited to:</p>
+        <div class="topics-list">
+            <div class="topic-item">
+                <div class="topic-title">Continuous Representations for Medical Modalities</div>
+                <p class="topic-description">Neural fields and implicit neural representations for encoding MRI, CT, X-ray, ultrasound, pathology images, endoscopy, and other medical signals</p>
+            </div>
+            <div class="topic-item">
+                <div class="topic-title">Grid-Free Reconstruction &amp; Rendering</div>
+                <p class="topic-description">NeRFs, Gaussian Splatting, and related techniques for 2D/3D/4D visualization, novel view synthesis, and surface/volume reconstruction of anatomical structures</p>
+            </div>
+            <div class="topic-item">
+                <div class="topic-title">Generalization Beyond Single Subjects</div>
+                <p class="topic-description">Generalization approaches including autodecoders, hypernetworks, or meta-learning strategies</p>
+            </div>
+            <div class="topic-item">
+                <div class="topic-title">Neural Compression</div>
+                <p class="topic-description">Neural compression strategies using implicit representations for high-fidelity storage and transmission of large-scale medical imaging datasets</p>
+            </div>
+            <div class="topic-item">
+                <div class="topic-title">Resolution-Agnostic Analysis</div>
+                <p class="topic-description">Methods leveraging continuous representations for super-resolution, cross-resolution learning, and handling heterogeneous acquisition protocols</p>
+            </div>
+            <div class="topic-item">
+                <div class="topic-title">Registration &amp; Spatial Alignment</div>
+                <p class="topic-description">Continuous deformation fields and grid-free approaches for image registration across modalities, time points, respiratory/cardiac phases, or subjects</p>
+            </div>
+            <div class="topic-item">
+                <div class="topic-title">Segmentation &amp; Shape Modeling</div>
+                <p class="topic-description">Implicit surface representations and splat-based methods for anatomical structure segmentation and shape completion</p>
+            </div>
+            <div class="topic-item">
+                <div class="topic-title">Surgical &amp; Interventional Applications</div>
+                <p class="topic-description">Real-time rendering, scene reconstruction, and visualization for surgical planning and navigation</p>
+            </div>
+            <div class="topic-item">
+                <div class="topic-title">Generative Modeling</div>
+                <p class="topic-description">Diffusion models, GANs, and other generative approaches combined with continuous representations for synthetic medical data generation</p>
+            </div>
+            <div class="topic-item">
+                <div class="topic-title">Uncertainty Quantification</div>
+                <p class="topic-description">Methods for estimating uncertainty in INRs, NeRFs, and Gaussian Splatting for safer deployment in clinical workflows</p>
+            </div>
+            <div class="topic-item">
+                <div class="topic-title">Neural Operators for Imaging Tasks</div>
+                <p class="topic-description">Fourier Neural Operators, DeepONets, and related architectures for learning resolution-independent mappings for reconstruction, super-resolution, and inverse problems</p>
+            </div>
+            <div class="topic-item">
+                <div class="topic-title">Physics-Informed Neural Networks</div>
+                <p class="topic-description">PINNs and their application to solving partial differential equations and parameter estimation in medical imaging</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="dates">
+        <h2>Important Dates</h2>
+        <div class="dates-grid">
+            <div class="date-card">
+                <div class="date-label">Paper Submission Deadline</div>
+                <div class="date-value">TBA</div>
+            </div>
+            <div class="date-card">
+                <div class="date-label">Final Decisions</div>
+                <div class="date-value">TBA</div>
+            </div>
+            <div class="date-card">
+                <div class="date-label">Camera Ready Deadline</div>
+                <div class="date-value">TBA</div>
+            </div>
+            <div class="date-card">
+                <div class="date-label">Workshop Date</div>
+                <div class="date-value">TBA, October 2026</div>
+            </div>
+        </div>
+        <p style="margin-top: 1.25rem; font-style: italic; color: var(--text-secondary);">All deadlines are 23:59 Anywhere on Earth (AoE).</p>
+    </section>
+
+    <section id="submission">
+        <h2>Submission Guidelines</h2>
+        <div class="submission-box">
+            <h3>Paper Format</h3>
+            <ul>
+                <li>Unless stated otherwise, all paper must follow the official MICCAI 2026 <a href="https://conferences.miccai.org/2026/en/PAPER-SUBMISSION-GUIDELINES.html">paper submission guidelines</a></li>
+                <li>Papers must be formatted using the official <a href="https://conferences.miccai.org/2026/files/downloads/MICCAI2026-Latex-Template.zip">MICCAI 2026 LNCS template</a></li>
+                <!--<li>We feature full paper submissions: 8 pages (excluding references, acknowledgments, etc.) + 2 additional pages for acknowledgments and references</li>-->
+                <li>All submitted material must be properly anonymized for the double-blind review process</li>
+                <li>We encourage authors to submit anonymized code alongside their paper (e.g. using <a href="https://anonymous.4open.science">AnonymousGitHub</a>)</li>
+            </ul>
+            <h3>Originality</h3>
+            <p>All submissions must be entirely original and should not overlap substantially with any work already published or under review. Likewise, no paper with overlapping content may be submitted to another conference, journal, or workshop during the review period (with the explicit exception of preprint servers like arXiv, bioRxiv, MedRxiv, or TechRxiv).</p>
+
+            <h3>Review Process</h3>
+            <p>Each submission will be reviewed by at least three members of the program committee. We will use OpenReview for the review process, and intend to publish anonymized reviews and meta-reviews. Reviews will evaluate technical quality, novelty, clinical relevance, clarity, and reproducibility. Papers that fail to stick to the formatting rules or are not properly anonymized will be desk rejected.</p>
+
+            <h3>Participation</h3>
+            <p>All accepted papers must be presented in person by an author registered for physical, on-site participation at the conference. We reserve the right to withdraw an accepted paper from the proceedings if the authors fail to present in person.</p>
+            <h3>Proceedings</h3>
+            <p>Accepted papers will be published in the MICCAI 2026 Workshop Proceedings - Lecture Notes in Computer Science (LNCS) by Springer Nature. We will also provide open access through the MICCAI Society pages.</p>
+
+            <a href="#" class="cta-button">Submission System (OpenReview - not yet available)</a>
+        </div>
+    </section>
+
+    <section id="program">
+        <h2>Workshop Program</h2>
+        <!--<p>The workshop will be held as a half-day session. The schedule below is tentative and subject to adjustment based on the final volume of accepted papers.</p>
+
+        <div class="submission-box" style="margin-top: 1.25rem;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                <tr style="border-bottom: 2px solid var(--border);">
+                    <th style="text-align: left; padding: 1rem 0; color: var(--primary);">Time (Local Time, GMT+4)</th>
+                    <th style="text-align: left; padding: 1rem 0; color: var(--primary);">Activity</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr style="border-bottom: 1px solid var(--border);">
+                    <td style="padding: 1rem 0; font-weight: 600;">1:30 PM - 1:45 PM</td>
+                    <td style="padding: 1rem 0; color: var(--text-secondary);">Opening Remarks</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border);">
+                    <td style="padding: 1rem 0; font-weight: 600;">1:45 PM - 2:30 PM</td>
+                    <td style="padding: 1rem 0; color: var(--text-secondary);">Oral Session 1 (3 presentations)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border);">
+                    <td style="padding: 1rem 0; font-weight: 600;">2:30 PM - 3:30 PM</td>
+                    <td style="padding: 1rem 0; color: var(--text-secondary);">Poster Session</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border); background: var(--background);">
+                    <td style="padding: 1rem 0; font-weight: 600; font-style: italic;">3:30 PM - 4:00 PM</td>
+                    <td style="padding: 1rem 0; color: var(--text-secondary); font-style: italic;">Coffee Break</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border);">
+                    <td style="padding: 1rem 0; font-weight: 600;">4:00 PM - 4:45 PM</td>
+                    <td style="padding: 1rem 0; color: var(--text-secondary);">Keynote Lecture by Prof. Guha Balakrishnan</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border);">
+                    <td style="padding: 1rem 0; font-weight: 600;">4:45 PM - 5:30 PM</td>
+                    <td style="padding: 1rem 0; color: var(--text-secondary);">Oral Session 2 (3 presentations)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 1rem 0; font-weight: 600;">5:30 PM - 6:00 PM</td>
+                    <td style="padding: 1rem 0; color: var(--text-secondary);">Award Ceremony and Closing Remarks</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>-->
+        <h3 style="margin-top: 2.5rem;">Keynote Speaker</h3>
+        <div class="submission-box" style="margin-top: 1.25rem;">
+            <div class="keynote-card">
+                <div class="keynote-image">
+                    <img src="media/guha_balakrishnan.png" alt="Prof. Guha Balakrishnan">
+                </div>
+                <div class="keynote-info">
+                    <h3 style="margin-top: 0;">Prof. Guha Balakrishnan, PhD</h3>
+                    <p style="margin-bottom: 0.5rem;"><strong>Rice University</strong></p>
+                    <p>Guha Balakrishnan is an Assistant Professor in Electrical and Computer Engineering. His research focuses on scalable and reliable computer vision methods applied to medical and geospatial imaging. He is a co-author of several influential INR papers including "WIRE: Wavelet Implicit Neural Representations" and "MINER: Multiscale Implicit Neural Representations", as well as MICCAI 2025's best paper "Fit Pixels, Get Labels: Meta-Learned Implicit Networks for Image Segmentation".</p>
+                    <div class="keynote-links">
+                        <a href="https://www.guhabalakrishnan.com/" class="website" title="Personal Website" target="_blank">
+                            <i class="fa-solid fa-globe"></i>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=8rZyuc8AAAAJ&hl=en" class="google-scholar" title="Google Scholar" target="_blank">
+                            <i class="fa-brands fa-google-scholar"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/guha-balakrishnan-71ab37189/" class="linkedin" title="LinkedIn" target="_blank">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="committee">
+        <h2>Organizing Committee</h2>
+        <div class="committee-grid">
+            <div class="person-card">
+                <div class="person-avatar">
+                    <img src="media/paul_friedrich.jpeg" alt="Paul Friedrich"
+                         onerror="this.parentElement.outerHTML='<div class=\'person-avatar-initials\' style=\'background: linear-gradient(135deg, #4a6fa5, #6b8fc4);\'>PF</div>'">
+                </div>
+                <div class="person-name">Paul Friedrich</div>
+                <div class="person-affiliation">University of Basel<br>Switzerland</div>
+                <div class="person-links">
+                    <a href="https://pfriedri.github.io/" class="website" title="Personal Website" target="_blank">
+                        <i class="fa-solid fa-globe"></i>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=jz_CjHYAAAAJ&hl=en" class="google-scholar" title="Google Scholar" target="_blank">
+                        <i class="fa-brands fa-google-scholar"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/pfriedri/" class="linkedin" title="LinkedIn" target="_blank">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="person-card">
+                <div class="person-avatar">
+                    <img src="media/julian_mcginnis.png" alt="Julian McGinnis"
+                         onerror="this.parentElement.outerHTML='<div class=\'person-avatar-initials\' style=\'background: linear-gradient(135deg, #5a7d9a, #7a9db8);\'>JM</div>'">
+                </div>
+                <div class="person-name">Julian McGinnis</div>
+                <div class="person-affiliation">Technical University of Munich<br>Germany</div>
+                <div class="person-links">
+                    <a href="https://jqmcginnis.github.io/" class="website" title="Personal Website" target="_blank">
+                        <i class="fa-solid fa-globe"></i>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=hy6MSk4AAAAJ&hl=en" class="google-scholar" title="Google Scholar" target="_blank">
+                        <i class="fa-brands fa-google-scholar"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/jqmcginnis/" class="linkedin" title="LinkedIn" target="_blank">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="person-card">
+                <div class="person-avatar">
+                    <img src="media/vasiliki_siderilampretsa.jpg" alt="Vasiliki Sideri-Lampretsa"
+                         onerror="this.parentElement.outerHTML='<div class=\'person-avatar-initials\' style=\'background: linear-gradient(135deg, #8b6a9e, #a688b8);\'>VS</div>'">
+                </div>
+                <div class="person-name">Vasiliki Sideri-Lampretsa</div>
+                <div class="person-affiliation">Technical University of Munich<br>Germany</div>
+                <div class="person-links">
+                    <a href="https://scholar.google.com/citations?user=G1hpNYYAAAAJ&hl=en" class="google-scholar" title="Google Scholar" target="_blank">
+                        <i class="fa-brands fa-google-scholar"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/vasiliki-sideri-lampretsa/" class="linkedin" title="LinkedIn" target="_blank">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="person-card">
+                <div class="person-avatar">
+                    <img src="media/yunjie_chen.jpeg" alt="Yunjie Chen"
+                         onerror="this.parentElement.outerHTML='<div class=\'person-avatar-initials\' style=\'background: linear-gradient(135deg, #6a8e7f, #88b0a0);\'>YC</div>'">
+                </div>
+                <div class="person-name">Yunjie Chen</div>
+                <div class="person-affiliation">University College London<br>United Kingdom</div>
+                <div class="person-links">
+                    <a href="https://scholar.google.nl/citations?user=eAEN2p4AAAAJ&hl=en" class="google-scholar" title="Google Scholar" target="_blank">
+                        <i class="fa-brands fa-google-scholar"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/yunjie-chen-3084a8184/" class="linkedin" title="LinkedIn" target="_blank">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="person-card">
+                <div class="person-avatar">
+                    <img src="media/florentin_bieder.png" alt="Florentin Bieder"
+                         onerror="this.parentElement.outerHTML='<div class=\'person-avatar-initials\' style=\'background: linear-gradient(135deg, #7a6e5d, #9a8e7d);\'>FB</div>'">
+                </div>
+                <div class="person-name">Florentin Bieder</div>
+                <div class="person-affiliation">University of Basel<br>Switzerland</div>
+                <div class="person-links">
+                    <a href="https://scholar.google.com/citations?user=Lwv1ra8AAAAJ&hl=en" class="google-scholar" title="Google Scholar" target="_blank">
+                        <i class="fa-brands fa-google-scholar"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/florentin-bieder/" class="linkedin" title="LinkedIn" target="_blank">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="person-card">
+                <div class="person-avatar">
+                    <img src="media/suprosanna_shit.jpeg" alt="Suprosanna Shit"
+                         onerror="this.parentElement.outerHTML='<div class=\'person-avatar-initials\' style=\'background: linear-gradient(135deg, #c7493a, #d67265);\'>SS</div>'">
+                </div>
+                <div class="person-name">Suprosanna Shit</div>
+                <div class="person-affiliation">University of Zurich<br>Switzerland</div>
+                <div class="person-links">
+                    <a href="https://scholar.google.com/citations?user=WhAMNrcAAAAJ&hl=en" class="google-scholar" title="Google Scholar" target="_blank">
+                        <i class="fa-brands fa-google-scholar"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/suprosanna/" class="linkedin" title="LinkedIn" target="_blank">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="person-card">
+                <div class="person-avatar">
+                    <img src="media/jelmer_wolterink.png" alt="Jelmer M. Wolterink"
+                         onerror="this.parentElement.outerHTML='<div class=\'person-avatar-initials\' style=\'background: linear-gradient(135deg, #3d6b7e, #5d8b9e);\'>JW</div>'">
+                </div>
+                <div class="person-name">Jelmer M. Wolterink</div>
+                <div class="person-affiliation">University of Twente<br>Netherlands</div>
+                <div class="person-links">
+                    <a href="https://scholar.google.com/citations?user=xzlXuWoAAAAJ&hl=en" class="google-scholar" title="Google Scholar" target="_blank">
+                        <i class="fa-brands fa-google-scholar"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/jelmer-wolterink-a1a1981b/" class="linkedin" title="LinkedIn" target="_blank">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 2.5rem;">Program Committee</h3>
+        <p>The complete list of program committee members will be announced soon. We are assembling a distinguished panel of experts from academia and industry to ensure rigorous and fair evaluation of all submissions.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Information</h2>
+        <p>For questions regarding the workshop, please contact the organizing committee:</p>
+        <p style="font-weight: 600; color: var(--accent); margin-top: 1rem;">
+            <a href="mailto:workshop.offgrid@gmail.com" style="color: var(--accent); text-decoration: none;">
+                workshop.offgrid@gmail.com
+            </a>
+        </p>
+
+
+        <h3 style="margin-top: 2rem;">Sponsors</h3>
+        <p style="margin-top: 1rem;"><strong>Best Paper Award Sponsor:</strong> <a href="https://imfusion.com/" style="color: var(--accent); text-decoration: none;">ImFusion</a> (500€)</p>
+        <!-- <p style="margin-top: 0.5rem;"><strong>Best Reproducibility Award:</strong> Sponsorship pending</p> -->
+    </section>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2026 Off-Grid: 1st Workshop on Continuous Representations and Grid-Free Methods in Medical Imaging</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">A satellite event of MICCAI 2026 - Abu Dhabi, United Arab Emirates</p>
+        <div class="footer-links">
+            <a href="https://conferences.miccai.org/2026/">MICCAI 2026</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const navHeight = document.querySelector('nav').offsetHeight;
+                const targetPosition = target.offsetTop - navHeight - 20;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const sections = document.querySelectorAll('section');
+        const navHeight = document.querySelector('nav').offsetHeight;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - navHeight - 100;
+            if (window.pageYOffset >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').slice(1) === current) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+</body>
+</html>
