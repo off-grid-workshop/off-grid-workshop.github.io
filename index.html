@@ -50,24 +50,28 @@
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1.0rem 2rem;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: stretch;
         }
 
         .logo {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--primary);
-            font-family: 'IBM Plex Mono', monospace;
-            letter-spacing: -0.02em;
+            display: flex;
+            align-items: stretch;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            display: block;
         }
 
         .nav-links {
             display: flex;
             gap: 2rem;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
@@ -101,6 +105,12 @@
             height: 36px;
             width: auto;
             flex-shrink: 0;
+            display: block;
+        }
+
+        .nav-container > a {
+            display: flex;
+            align-items: center;
         }
 
         /* Hero Section */
@@ -600,7 +610,9 @@
 <body>
 <nav>
     <div class="nav-container">
-        <div class="logo">Off-Grid Workshop - MICCAI 2026</div>
+        <div class="logo">
+            <img src="media/off-grid-neuralnet-light.svg" alt="Off-Grid Workshop">
+        </div>
         <ul class="nav-links">
             <li><a href="#overview">Overview</a></li>
             <li><a href="#dates">Important Dates</a></li>

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 240" preserveAspectRatio="xMidYMid meet">
+  <!-- Fully connected neural network: 2 -> 4 -> 4 -> 4 -> 1 -->
+  <g stroke="#0a0a0a" stroke-width="1.0" stroke-linecap="round" fill="none" opacity="0.35">
+    <line x1="40.0" y1="98.3" x2="108.0" y2="50.0"/>
+    <line x1="40.0" y1="98.3" x2="108.0" y2="98.3"/>
+    <line x1="40.0" y1="98.3" x2="108.0" y2="146.7"/>
+    <line x1="40.0" y1="98.3" x2="108.0" y2="195.0"/>
+    <line x1="40.0" y1="146.7" x2="108.0" y2="50.0"/>
+    <line x1="40.0" y1="146.7" x2="108.0" y2="98.3"/>
+    <line x1="40.0" y1="146.7" x2="108.0" y2="146.7"/>
+    <line x1="40.0" y1="146.7" x2="108.0" y2="195.0"/>
+    <line x1="108.0" y1="50.0" x2="175.0" y2="50.0"/>
+    <line x1="108.0" y1="50.0" x2="175.0" y2="98.3"/>
+    <line x1="108.0" y1="50.0" x2="175.0" y2="146.7"/>
+    <line x1="108.0" y1="50.0" x2="175.0" y2="195.0"/>
+    <line x1="108.0" y1="98.3" x2="175.0" y2="50.0"/>
+    <line x1="108.0" y1="98.3" x2="175.0" y2="98.3"/>
+    <line x1="108.0" y1="98.3" x2="175.0" y2="146.7"/>
+    <line x1="108.0" y1="98.3" x2="175.0" y2="195.0"/>
+    <line x1="108.0" y1="146.7" x2="175.0" y2="50.0"/>
+    <line x1="108.0" y1="146.7" x2="175.0" y2="98.3"/>
+    <line x1="108.0" y1="146.7" x2="175.0" y2="146.7"/>
+    <line x1="108.0" y1="146.7" x2="175.0" y2="195.0"/>
+    <line x1="108.0" y1="195.0" x2="175.0" y2="50.0"/>
+    <line x1="108.0" y1="195.0" x2="175.0" y2="98.3"/>
+    <line x1="108.0" y1="195.0" x2="175.0" y2="146.7"/>
+    <line x1="108.0" y1="195.0" x2="175.0" y2="195.0"/>
+    <line x1="175.0" y1="50.0" x2="242.0" y2="50.0"/>
+    <line x1="175.0" y1="50.0" x2="242.0" y2="98.3"/>
+    <line x1="175.0" y1="50.0" x2="242.0" y2="146.7"/>
+    <line x1="175.0" y1="50.0" x2="242.0" y2="195.0"/>
+    <line x1="175.0" y1="98.3" x2="242.0" y2="50.0"/>
+    <line x1="175.0" y1="98.3" x2="242.0" y2="98.3"/>
+    <line x1="175.0" y1="98.3" x2="242.0" y2="146.7"/>
+    <line x1="175.0" y1="98.3" x2="242.0" y2="195.0"/>
+    <line x1="175.0" y1="146.7" x2="242.0" y2="50.0"/>
+    <line x1="175.0" y1="146.7" x2="242.0" y2="98.3"/>
+    <line x1="175.0" y1="146.7" x2="242.0" y2="146.7"/>
+    <line x1="175.0" y1="146.7" x2="242.0" y2="195.0"/>
+    <line x1="175.0" y1="195.0" x2="242.0" y2="50.0"/>
+    <line x1="175.0" y1="195.0" x2="242.0" y2="98.3"/>
+    <line x1="175.0" y1="195.0" x2="242.0" y2="146.7"/>
+    <line x1="175.0" y1="195.0" x2="242.0" y2="195.0"/>
+    <line x1="242.0" y1="50.0" x2="310.0" y2="122.5"/>
+    <line x1="242.0" y1="98.3" x2="310.0" y2="122.5"/>
+    <line x1="242.0" y1="146.7" x2="310.0" y2="122.5"/>
+    <line x1="242.0" y1="195.0" x2="310.0" y2="122.5"/>
+  </g>
+  <g>
+    <circle cx="40.0" cy="98.3" r="7" fill="#0a0a0a"/>
+    <circle cx="40.0" cy="146.7" r="7" fill="#0a0a0a"/>
+    <circle cx="108.0" cy="50.0" r="7" fill="#0055A4"/>
+    <circle cx="108.0" cy="98.3" r="7" fill="#0055A4"/>
+    <circle cx="108.0" cy="146.7" r="7" fill="#0055A4"/>
+    <circle cx="108.0" cy="195.0" r="7" fill="#0055A4"/>
+    <circle cx="175.0" cy="50.0" r="7" fill="#FFFFFF" stroke="#0a0a0a" stroke-width="1"/>
+    <circle cx="175.0" cy="98.3" r="7" fill="#FFFFFF" stroke="#0a0a0a" stroke-width="1"/>
+    <circle cx="175.0" cy="146.7" r="7" fill="#FFFFFF" stroke="#0a0a0a" stroke-width="1"/>
+    <circle cx="175.0" cy="195.0" r="7" fill="#FFFFFF" stroke="#0a0a0a" stroke-width="1"/>
+    <circle cx="242.0" cy="50.0" r="7" fill="#EF4135"/>
+    <circle cx="242.0" cy="98.3" r="7" fill="#EF4135"/>
+    <circle cx="242.0" cy="146.7" r="7" fill="#EF4135"/>
+    <circle cx="242.0" cy="195.0" r="7" fill="#EF4135"/>
+    <circle cx="310.0" cy="122.5" r="7" fill="#0a0a0a"/>
+  </g>
+
+  <!-- Divider -->
+  <line x1="370" y1="55" x2="370" y2="185" stroke="#d8d8d8" stroke-width="1"/>
+
+  <!-- Wordmark -->
+  <text x="405" y="135"
+        font-family="'Helvetica Neue', 'Arial Black', Arial, sans-serif"
+        font-weight="800" font-size="78" letter-spacing="-2"
+        fill="#0a0a0a">OFF</text>
+  <circle cx="580" cy="107" r="7" fill="#2860c0"/>
+  <text x="595" y="135"
+        font-family="'Helvetica Neue', 'Arial Black', Arial, sans-serif"
+        font-weight="800" font-size="78" letter-spacing="-2"
+        fill="#0a0a0a">GRID</text>
+  <text x="408" y="172"
+        font-family="'Helvetica Neue', 'Inter', Arial, sans-serif"
+        font-weight="500" font-size="16" letter-spacing="3.6"
+        fill="#555555">MICCAI 2026 WORKSHOP</text>
+</svg>
