@@ -371,6 +371,85 @@
             color: #a6ce39;
         }
 
+        /* Program Committee / Reviewers */
+        .reviewer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+            gap: 0.15rem 1.5rem;
+            margin-top: 1.25rem;
+        }
+
+        .reviewer-item {
+            padding: 0.3rem 0;
+        }
+
+        .reviewer-name {
+            display: block;
+            font-weight: 600;
+            font-size: 0.88rem;
+            line-height: 1.25;
+            color: var(--primary);
+        }
+
+        .reviewer-affiliation {
+            display: block;
+            font-size: 0.75rem;
+            line-height: 1.25;
+            color: var(--text-secondary);
+        }
+
+        /* Program Paper Listings */
+        .session-heading {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: var(--primary);
+            margin: 1.75rem 0 0.35rem;
+        }
+
+        .session-heading:first-child {
+            margin-top: 0;
+        }
+
+        .paper-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .paper-item {
+            display: flex;
+            gap: 0.9rem;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .paper-item:last-child {
+            border-bottom: none;
+        }
+
+        .paper-id {
+            flex-shrink: 0;
+            min-width: 2.75rem;
+            padding-top: 0.1rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .paper-title {
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--primary);
+        }
+
+        .paper-presenter {
+            font-size: 0.85rem;
+            line-height: 1.35;
+            color: var(--text-secondary);
+        }
+
         /* Submission Guidelines */
         .submission-box {
             background: var(--surface);
@@ -808,6 +887,109 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- Accepted Papers (placeholders) — uncomment to publish once the program is finalized. Duplicate a .paper-item per accepted poster paper.
+        <h3 style="margin-top: 2.5rem;">Accepted Papers</h3>
+        <p>The final list of accepted papers will be published here once the review process concludes.</p>
+        <div class="submission-box" style="margin-top: 1.25rem;">
+            <h4 class="session-heading">Oral Session 1</h4>
+            <div class="paper-list">
+                <div class="paper-item">
+                    <span class="paper-id">#000</span>
+                    <div>
+                        <div class="paper-title">[Paper title]</div>
+                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
+                    </div>
+                </div>
+                <div class="paper-item">
+                    <span class="paper-id">#000</span>
+                    <div>
+                        <div class="paper-title">[Paper title]</div>
+                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
+                    </div>
+                </div>
+                <div class="paper-item">
+                    <span class="paper-id">#000</span>
+                    <div>
+                        <div class="paper-title">[Paper title]</div>
+                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="session-heading">Oral Session 2</h4>
+            <div class="paper-list">
+                <div class="paper-item">
+                    <span class="paper-id">#000</span>
+                    <div>
+                        <div class="paper-title">[Paper title]</div>
+                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
+                    </div>
+                </div>
+                <div class="paper-item">
+                    <span class="paper-id">#000</span>
+                    <div>
+                        <div class="paper-title">[Paper title]</div>
+                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
+                    </div>
+                </div>
+                <div class="paper-item">
+                    <span class="paper-id">#000</span>
+                    <div>
+                        <div class="paper-title">[Paper title]</div>
+                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="session-heading">Poster Session</h4>
+            <div class="paper-list">
+                <div class="paper-item">
+                    <span class="paper-id">#000</span>
+                    <div>
+                        <div class="paper-title">[Paper title]</div>
+                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
+                    </div>
+                </div>
+                <div class="paper-item">
+                    <span class="paper-id">#000</span>
+                    <div>
+                        <div class="paper-title">[Paper title]</div>
+                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
+                    </div>
+                </div>
+                <div class="paper-item">
+                    <span class="paper-id">#000</span>
+                    <div>
+                        <div class="paper-title">[Paper title]</div>
+                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
+                    </div>
+                </div>
+                <div class="paper-item">
+                    <span class="paper-id">#000</span>
+                    <div>
+                        <div class="paper-title">[Paper title]</div>
+                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
+                    </div>
+                </div>
+                <div class="paper-item">
+                    <span class="paper-id">#000</span>
+                    <div>
+                        <div class="paper-title">[Paper title]</div>
+                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
+                    </div>
+                </div>
+                <div class="paper-item">
+                    <span class="paper-id">#000</span>
+                    <div>
+                        <div class="paper-title">[Paper title]</div>
+                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+
         <h3 style="margin-top: 2.5rem;">Keynote Speaker</h3>
         <div class="submission-box" style="margin-top: 1.25rem;">
             <div class="keynote-card">
@@ -958,7 +1140,189 @@
         </div>
 
         <h3 style="margin-top: 2.5rem;">Program Committee</h3>
-        <p>The complete list of program committee members will be announced soon. We are assembling a distinguished panel of experts from academia and industry to ensure rigorous and fair evaluation of all submissions.</p>
+        <p>We gratefully acknowledge the reviewers who contribute their time and expertise to ensure a rigorous and fair evaluation of all submissions.</p>
+        <div class="reviewer-grid">
+            <div class="reviewer-item">
+                <span class="reviewer-name">Jaume Banus</span>
+                <span class="reviewer-affiliation">Lausanne University Hospital, Switzerland</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Andrew Bell</span>
+                <span class="reviewer-affiliation">King's College London, United Kingdom</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Azhar Bihari</span>
+                <span class="reviewer-affiliation">Indian Institute of Technology Madras, India</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Sierra Bonilla</span>
+                <span class="reviewer-affiliation">University College London, United Kingdom</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Maik Dannecker</span>
+                <span class="reviewer-affiliation">Technical University of Munich, Germany</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Fabian Drexel</span>
+                <span class="reviewer-affiliation">Technical University of Munich, Germany</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Felix Duelmer</span>
+                <span class="reviewer-affiliation">Technical University of Munich, Germany</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Alicia Durrer</span>
+                <span class="reviewer-affiliation">University of Basel, Switzerland</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Sidaty El Hadramy</span>
+                <span class="reviewer-affiliation">University of Basel, Switzerland</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Daniel Frey</span>
+                <span class="reviewer-affiliation">Technical University of Munich, Germany</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Romain Hardy</span>
+                <span class="reviewer-affiliation">Harvard University, United States</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Louis van Harten</span>
+                <span class="reviewer-affiliation">Eindhoven University of Technology, Netherlands</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Moein Heidari</span>
+                <span class="reviewer-affiliation">University of British Columbia, Canada</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Mattias P. Heinrich</span>
+                <span class="reviewer-affiliation">University of Lübeck, Germany</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Rudolf L. M. van Herten</span>
+                <span class="reviewer-affiliation">Weill Cornell Medicine, United States</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Lucie Huang</span>
+                <span class="reviewer-affiliation">Technical University of Munich, Germany</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Wenqi Huang</span>
+                <span class="reviewer-affiliation">Technical University of Munich, Germany</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Paul Kaftan</span>
+                <span class="reviewer-affiliation">Ulm University, Germany</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Anusha Kanagala</span>
+                <span class="reviewer-affiliation">University of Alabama at Birmingham, United States</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Amirhossein Kazerouni</span>
+                <span class="reviewer-affiliation">University of Toronto, Canada</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Timo Kepp</span>
+                <span class="reviewer-affiliation">DFKI, Germany</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Youjin Kim</span>
+                <span class="reviewer-affiliation">Chung-Ang University, South Korea</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Denis Krnjaca</span>
+                <span class="reviewer-affiliation">University of Lübeck, Germany</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Yue Li</span>
+                <span class="reviewer-affiliation">University of Pennsylvania, United States</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Hengjie Liu</span>
+                <span class="reviewer-affiliation">University of California, San Francisco, United States</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Mathias Lowes</span>
+                <span class="reviewer-affiliation">Technical University of Denmark, Denmark</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Khoa Tuan Nguyen</span>
+                <span class="reviewer-affiliation">Ghent University Global Campus, South Korea</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Natascha Niessen</span>
+                <span class="reviewer-affiliation">Technical University of Munich, Germany</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Emmanouil Nikolakakis</span>
+                <span class="reviewer-affiliation">University of California, Santa Cruz, United States</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Caner Ozer</span>
+                <span class="reviewer-affiliation">Istanbul Technical University, Turkey</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Pranav Poudel</span>
+                <span class="reviewer-affiliation">Polytechnique Montréal, Canada</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Chinmay Prabhakar</span>
+                <span class="reviewer-affiliation">University of Zurich, Switzerland</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Laura Salort-Benejam</span>
+                <span class="reviewer-affiliation">Universitat Politècnica de Catalunya, Spain</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Simone Sarrocco</span>
+                <span class="reviewer-affiliation">University of Basel, Switzerland</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Vincent van de Schaft</span>
+                <span class="reviewer-affiliation">Eindhoven University of Technology, Netherlands</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Susanne Schaub</span>
+                <span class="reviewer-affiliation">University of Basel, Switzerland</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Veronika Spieker</span>
+                <span class="reviewer-affiliation">Technical University of Munich, Germany</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Nil Stolt-Ansó</span>
+                <span class="reviewer-affiliation">Technical University of Munich, Germany</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Martin Styner</span>
+                <span class="reviewer-affiliation">University of North Carolina at Chapel Hill, United States</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Julian Suk</span>
+                <span class="reviewer-affiliation">Technical University of Munich, Germany</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Leo Widmer</span>
+                <span class="reviewer-affiliation">University of Basel, Switzerland</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Matthias Wilms</span>
+                <span class="reviewer-affiliation">University of Michigan, United States</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Julia Wolleb</span>
+                <span class="reviewer-affiliation">Yale University, United States</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Ruyi Zha</span>
+                <span class="reviewer-affiliation">Australian National University, Australia</span>
+            </div>
+            <div class="reviewer-item">
+                <span class="reviewer-name">Omar Zribi</span>
+                <span class="reviewer-affiliation">Université Claude Bernard Lyon 1, France</span>
+            </div>
+        </div>
     </section>
 
     <section id="contact">
