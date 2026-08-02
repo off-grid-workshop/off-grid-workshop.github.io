@@ -3,8 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Off-Grid 2026</title>
+    <title>Off-Grid 2026 | MICCAI Workshop on Grid-Free Methods in Medical Imaging</title>
     <meta name="description" content="Off-Grid is a MICCAI 2026 workshop on continuous representations and grid-free methods in medical imaging, covering neural fields, NeRFs, Gaussian Splatting, and more. Strasbourg, France, 2026.">
+    <link rel="canonical" href="https://off-grid-workshop.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Off-Grid 2026">
+    <meta property="og:url" content="https://off-grid-workshop.github.io/">
+    <meta property="og:title" content="Off-Grid 2026 | MICCAI Workshop on Grid-Free Methods in Medical Imaging">
+    <meta property="og:description" content="A MICCAI 2026 satellite workshop on continuous representations and grid-free methods in medical imaging - neural fields, NeRFs and Gaussian Splatting. 1 October 2026, Strasbourg, France.">
+    <meta property="og:image" content="https://off-grid-workshop.github.io/media/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Off-Grid: 1st Workshop on Continuous Representations and Grid-Free Methods in Medical Imaging. MICCAI 2026, 1 October 2026, Strasbourg.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Off-Grid 2026 | MICCAI Workshop on Grid-Free Methods in Medical Imaging">
+    <meta name="twitter:description" content="A MICCAI 2026 satellite workshop on continuous representations and grid-free methods in medical imaging - neural fields, NeRFs and Gaussian Splatting. 1 October 2026, Strasbourg, France.">
+    <meta name="twitter:image" content="https://off-grid-workshop.github.io/media/og-image.png">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -450,6 +464,69 @@
             color: var(--text-secondary);
         }
 
+        .session-row:hover td {
+            background: var(--background);
+        }
+
+        .session-toggle {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            padding: 0;
+            border: 0;
+            background: none;
+            font: inherit;
+            color: inherit;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .session-chevron {
+            flex-shrink: 0;
+            font-size: 0.7rem;
+            color: var(--accent);
+            transition: transform 0.25s ease;
+        }
+
+        .session-toggle[aria-expanded="true"] .session-chevron {
+            transform: rotate(90deg);
+        }
+
+        .session-count {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            opacity: 0.7;
+        }
+
+        .session-detail > td {
+            padding: 0;
+            border: 0;
+        }
+
+        .session-panel {
+            max-height: 0;
+            overflow: hidden;
+            visibility: hidden;
+            transition: max-height 0.28s ease, visibility 0s linear 0.28s;
+        }
+
+        .session-detail.open .session-panel {
+            visibility: visible;
+            transition: max-height 0.28s ease, visibility 0s;
+        }
+
+        .session-detail .paper-list {
+            padding: 0.35rem 0 1.1rem 1.55rem;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .session-chevron,
+            .session-panel {
+                transition: none;
+            }
+        }
+
         /* Submission Guidelines */
         .submission-box {
             background: var(--surface);
@@ -685,6 +762,18 @@
 
         }
     </style>
+    <noscript>
+        <style>
+            .session-panel {
+                max-height: none;
+                visibility: visible;
+            }
+
+            .session-chevron {
+                display: none;
+            }
+        </style>
+    </noscript>
 </head>
 <body>
 <nav>
@@ -845,7 +934,7 @@
 
     <section id="program">
         <h2>Workshop Program</h2>
-        <p>The workshop will be held as a half-day session. The schedule below is tentative and subject to adjustment based on the final volume of accepted papers.</p>
+        <p>The workshop will be held as a half-day session. 24 papers were accepted for presentation: 8 as oral talks and 16 as posters. Select a session in the schedule below to see its papers. Times are tentative and subject to minor adjustment.</p>
 
         <div class="submission-box" style="margin-top: 1.25rem;">
             <table style="width: 100%; border-collapse: collapse;">
@@ -860,13 +949,181 @@
                     <td style="padding: 1rem 0; font-weight: 600;">1:30 PM - 1:45 PM</td>
                     <td style="padding: 1rem 0; color: var(--text-secondary);">Opening Remarks</td>
                 </tr>
-                <tr style="border-bottom: 1px solid var(--border);">
+                <tr class="session-row" style="border-bottom: 1px solid var(--border);">
                     <td style="padding: 1rem 0; font-weight: 600;">1:45 PM - 2:30 PM</td>
-                    <td style="padding: 1rem 0; color: var(--text-secondary);">Oral Session 1</td>
+                    <td style="padding: 1rem 0; color: var(--text-secondary);">
+                        <button type="button" class="session-toggle" aria-expanded="false" aria-controls="session-oral-1">
+                            <i class="fa-solid fa-chevron-right session-chevron" aria-hidden="true"></i>
+                            <span>Oral Session 1</span>
+                            <span class="session-count">4 papers</span>
+                        </button>
+                    </td>
                 </tr>
-                <tr style="border-bottom: 1px solid var(--border);">
+                <tr class="session-detail" id="session-oral-1">
+                    <td colspan="2">
+                        <div class="session-panel">
+                            <div class="paper-list">
+                                <div class="paper-item">
+                                    <span class="paper-id">#9</span>
+                                    <div>
+                                        <div class="paper-title">Learning Cardiac Motion Priors for Implicit Neural Representations</div>
+                                        <div class="paper-presenter">Andrew Bell, George Webber, Steffen E. Petersen, Andrew P. King, Muhummad Sohaib Nazir, Alistair Young</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#12</span>
+                                    <div>
+                                        <div class="paper-title">From Histology to in vivo MRI: An Implicit Neural Representation Framework for Medial Temporal Lobe Subregion Segmentation</div>
+                                        <div class="paper-presenter">Yue Li, Amanda E. Denning, Zahra Khodakarami, Pulkit Khandelwal, Long Xie, Christopher A. Brown, Laura E. M. Wisse, Sandhitsu R. Das, David A. Wolk, Paul A. Yushkevich</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#14</span>
+                                    <div>
+                                        <div class="paper-title">INR-based FPCA for Efficient Analysis of Longitudinal Neuroimaging Data</div>
+                                        <div class="paper-presenter">Matthias Wilms, Agampreet Aulakh</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#16</span>
+                                    <div>
+                                        <div class="paper-title">Shape-guided Gaussian Splatting for Sparse-View X-ray 3D Reconstruction</div>
+                                        <div class="paper-presenter">Pranav Poudel, Florence Dell'Aniello Picard, Nairouz Shehata, Frédéric Lavoie, Herve Lombaert</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="session-row" style="border-bottom: 1px solid var(--border);">
                     <td style="padding: 1rem 0; font-weight: 600;">2:30 PM - 3:30 PM</td>
-                    <td style="padding: 1rem 0; color: var(--text-secondary);">Poster Session</td>
+                    <td style="padding: 1rem 0; color: var(--text-secondary);">
+                        <button type="button" class="session-toggle" aria-expanded="false" aria-controls="session-poster">
+                            <i class="fa-solid fa-chevron-right session-chevron" aria-hidden="true"></i>
+                            <span>Poster Session</span>
+                            <span class="session-count">16 papers</span>
+                        </button>
+                    </td>
+                </tr>
+                <tr class="session-detail" id="session-poster">
+                    <td colspan="2">
+                        <div class="session-panel">
+                            <div class="paper-list">
+                                <div class="paper-item">
+                                    <span class="paper-id">#3</span>
+                                    <div>
+                                        <div class="paper-title">4D Triangle Splatting Reconstruction of Dynamic Endoscopic Scenes from Monocular Videos</div>
+                                        <div class="paper-presenter">Laura Salort-Benejam, Stamatia Giannarou, Antonio Agudo</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#4</span>
+                                    <div>
+                                        <div class="paper-title">Neural CDEs for Variable-Length qMRI: IVIM and R2* Estimation in the Pancreas</div>
+                                        <div class="paper-presenter">Florent Tachenne, Marie Pelissier-Combescure, Kpegouni Fadel, Chad Estoup-Streiff, Charles Berger, Marion Tardieu, Olivier Riou, Stephanie Nougaret</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#7</span>
+                                    <div>
+                                        <div class="paper-title">Causal Spatio-Temporal Neural Distance Fields for Counterfactual Cardiac Anatomy</div>
+                                        <div class="paper-presenter">Mathias Lowes, Kurt Butler, Kristine Aavild Sørensen, Klaus Fuglsang Kofoed, Sotirios A. Tsaftaris, Rasmus Reinhold Paulsen, Steven McDonagh</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#11</span>
+                                    <div>
+                                        <div class="paper-title">Overlap-Free Multi-Organ Shape Synthesis with Implicit Neural Representations</div>
+                                        <div class="paper-presenter">Bram de Wilde, Max Rietberg, Alina Dima, Joëlle van Aalst, Guillaume Lajoinie, Jelmer M. Wolterink</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#20</span>
+                                    <div>
+                                        <div class="paper-title">Modelling Geographic Atrophy Progression using Implicit Neural Representations</div>
+                                        <div class="paper-presenter">Simone Sarrocco, Paul Friedrich, Florentin Bieder, Christina Bornberg, Philippe Valmaggia, Peter M. Maloca, Philippe C. Cattin</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#24</span>
+                                    <div>
+                                        <div class="paper-title">Strain Rate Estimation from Ultrasound Channel Data</div>
+                                        <div class="paper-presenter">Vincent van de Schaft, Ruud van Sloun</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#25</span>
+                                    <div>
+                                        <div class="paper-title">NIMOSEF-R: Neural Implicit Motion and Segmentation Functions with Riemannian Embedding Priors and Breath-Motion Correction</div>
+                                        <div class="paper-presenter">Gonçalo Canastra, Jaume Banus, Van Heeswijk Ruud, Jonas Richiardi</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#28</span>
+                                    <div>
+                                        <div class="paper-title">Primitive Representation Learning for Unsupervised Dynamic Contrast Enhanced MRI Reconstruction</div>
+                                        <div class="paper-presenter">Veronika Spieker, Wenqi Huang, Cemre Ariyurek, Liam Timms, Daniel Rueckert, Onur Afacan, Julia Schnabel, Sila Kurugol</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#29</span>
+                                    <div>
+                                        <div class="paper-title">Surface-Conditioned Implicit Reconstruction of Internal Anatomy for Automated Patient Positioning</div>
+                                        <div class="paper-presenter">Denis Krnjaca, Mattias P Heinrich</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#31</span>
+                                    <div>
+                                        <div class="paper-title">Piecewise Positional Encodings (PPE) for Medical Image Representation</div>
+                                        <div class="paper-presenter">Anusha Kanagala, Stephanie Marie Aguilera, Dhiral Panjwani, Abhiraj S. Pudhota, Sandeep Bodduluri</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#32</span>
+                                    <div>
+                                        <div class="paper-title">Implicit representations are dead. Long live explicit primitives!</div>
+                                        <div class="paper-presenter">Nil Stolt-Ansó, Maik Dannecker, Wenqi Huang, Andras Jakab, Daniel Rueckert</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#35</span>
+                                    <div>
+                                        <div class="paper-title">Is Reconstruction Fidelity a Reliable Proxy for Segmentation in Medical INRs?</div>
+                                        <div class="paper-presenter">François Lecomte, Frédérick Roy, Jaesoon Choi, Stephane Cotin</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#36</span>
+                                    <div>
+                                        <div class="paper-title">Neural Field Fourier Token Mixers for Medical Image Segmentation</div>
+                                        <div class="paper-presenter">Niels Vyncke, Pooya Ashtari, Aleksandra Pizurica</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#37</span>
+                                    <div>
+                                        <div class="paper-title">Mirror and Map: Symmetric Latent Deformation Priors for Deformable Image Registration using Implicit Neural Representations</div>
+                                        <div class="paper-presenter">Bennet Kahrs, Fenja Falta, Jan Ehrhardt, Heinz Handels, Timo Kepp</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#38</span>
+                                    <div>
+                                        <div class="paper-title">Probing implicit neural representations for biomedical image classification in weight space</div>
+                                        <div class="paper-presenter">Michal Byra, Agnieszka Pregowska, Janusz Szczepanski</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#41</span>
+                                    <div>
+                                        <div class="paper-title">Observation-Conditioned Latent Energy Priors for Sparse Implicit Neural Shape Completion</div>
+                                        <div class="paper-presenter">Paul Büschl, Ezequiel De la Rosa, Julia Wolleb, Julian McGinnis, César Nombela-Arrieta, Bjoern Menze</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
                 <tr style="border-bottom: 1px solid var(--border); background: var(--background);">
                     <td style="padding: 1rem 0; font-weight: 600; font-style: italic;">3:30 PM - 4:00 PM</td>
@@ -876,9 +1133,51 @@
                     <td style="padding: 1rem 0; font-weight: 600;">4:00 PM - 4:45 PM</td>
                     <td style="padding: 1rem 0; color: var(--text-secondary);">Keynote Lecture by Prof. Guha Balakrishnan</td>
                 </tr>
-                <tr style="border-bottom: 1px solid var(--border);">
+                <tr class="session-row" style="border-bottom: 1px solid var(--border);">
                     <td style="padding: 1rem 0; font-weight: 600;">4:45 PM - 5:30 PM</td>
-                    <td style="padding: 1rem 0; color: var(--text-secondary);">Oral Session 2</td>
+                    <td style="padding: 1rem 0; color: var(--text-secondary);">
+                        <button type="button" class="session-toggle" aria-expanded="false" aria-controls="session-oral-2">
+                            <i class="fa-solid fa-chevron-right session-chevron" aria-hidden="true"></i>
+                            <span>Oral Session 2</span>
+                            <span class="session-count">4 papers</span>
+                        </button>
+                    </td>
+                </tr>
+                <tr class="session-detail" id="session-oral-2">
+                    <td colspan="2">
+                        <div class="session-panel">
+                            <div class="paper-list">
+                                <div class="paper-item">
+                                    <span class="paper-id">#26</span>
+                                    <div>
+                                        <div class="paper-title">Hemodynamic Neural Field: Continuous Blood Flow Estimation in Vessel Geometries via Global Shape Conditioning</div>
+                                        <div class="paper-presenter">Simon Perrin, Patryk Rygiel, Amin Ranem, Bram de Wilde, Sébastien Levilly, Jelmer M. Wolterink, Harold Mouchère</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#30</span>
+                                    <div>
+                                        <div class="paper-title">The Right Prior for the Right Deformation: Rethinking Continuous Deformable Image Registration</div>
+                                        <div class="paper-presenter">Hengjie Liu, Chushu Shen, Dan Ruan, Ke Sheng</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#33</span>
+                                    <div>
+                                        <div class="paper-title">Over-parameterising optimisation for sparse 3D medical image registration</div>
+                                        <div class="paper-presenter">Mattias P Heinrich</div>
+                                    </div>
+                                </div>
+                                <div class="paper-item">
+                                    <span class="paper-id">#34</span>
+                                    <div>
+                                        <div class="paper-title"><em>K</em>-NeAS: Scalable Multi-Material CT Reconstruction Using Neural SDFs</div>
+                                        <div class="paper-presenter">Daksh Kalpesh Shah, Emmanouil Nikolakakis, Razvan Marinescu</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td style="padding: 1rem 0; font-weight: 600;">5:30 PM - 6:00 PM</td>
@@ -887,108 +1186,7 @@
                 </tbody>
             </table>
         </div>
-
-        <!-- Accepted Papers (placeholders) — uncomment to publish once the program is finalized. Duplicate a .paper-item per accepted poster paper.
-        <h3 style="margin-top: 2.5rem;">Accepted Papers</h3>
-        <p>The final list of accepted papers will be published here once the review process concludes.</p>
-        <div class="submission-box" style="margin-top: 1.25rem;">
-            <h4 class="session-heading">Oral Session 1</h4>
-            <div class="paper-list">
-                <div class="paper-item">
-                    <span class="paper-id">#000</span>
-                    <div>
-                        <div class="paper-title">[Paper title]</div>
-                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
-                    </div>
-                </div>
-                <div class="paper-item">
-                    <span class="paper-id">#000</span>
-                    <div>
-                        <div class="paper-title">[Paper title]</div>
-                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
-                    </div>
-                </div>
-                <div class="paper-item">
-                    <span class="paper-id">#000</span>
-                    <div>
-                        <div class="paper-title">[Paper title]</div>
-                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
-                    </div>
-                </div>
-            </div>
-
-            <h4 class="session-heading">Oral Session 2</h4>
-            <div class="paper-list">
-                <div class="paper-item">
-                    <span class="paper-id">#000</span>
-                    <div>
-                        <div class="paper-title">[Paper title]</div>
-                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
-                    </div>
-                </div>
-                <div class="paper-item">
-                    <span class="paper-id">#000</span>
-                    <div>
-                        <div class="paper-title">[Paper title]</div>
-                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
-                    </div>
-                </div>
-                <div class="paper-item">
-                    <span class="paper-id">#000</span>
-                    <div>
-                        <div class="paper-title">[Paper title]</div>
-                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
-                    </div>
-                </div>
-            </div>
-
-            <h4 class="session-heading">Poster Session</h4>
-            <div class="paper-list">
-                <div class="paper-item">
-                    <span class="paper-id">#000</span>
-                    <div>
-                        <div class="paper-title">[Paper title]</div>
-                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
-                    </div>
-                </div>
-                <div class="paper-item">
-                    <span class="paper-id">#000</span>
-                    <div>
-                        <div class="paper-title">[Paper title]</div>
-                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
-                    </div>
-                </div>
-                <div class="paper-item">
-                    <span class="paper-id">#000</span>
-                    <div>
-                        <div class="paper-title">[Paper title]</div>
-                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
-                    </div>
-                </div>
-                <div class="paper-item">
-                    <span class="paper-id">#000</span>
-                    <div>
-                        <div class="paper-title">[Paper title]</div>
-                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
-                    </div>
-                </div>
-                <div class="paper-item">
-                    <span class="paper-id">#000</span>
-                    <div>
-                        <div class="paper-title">[Paper title]</div>
-                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
-                    </div>
-                </div>
-                <div class="paper-item">
-                    <span class="paper-id">#000</span>
-                    <div>
-                        <div class="paper-title">[Paper title]</div>
-                        <div class="paper-presenter">[Presenter], [Affiliation]</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        -->
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.85rem;">Papers are listed by submission number. Presentation order within each session will be announced closer to the workshop date.</p>
 
         <h3 style="margin-top: 2.5rem;">Keynote Speaker</h3>
         <div class="submission-box" style="margin-top: 1.25rem;">
@@ -1375,10 +1573,13 @@
   "@type": "Event",
   "name": "Off-Grid: 1st Workshop on Continuous Representations and Grid-Free Methods in Medical Imaging",
   "description": "A MICCAI 2026 satellite workshop exploring off-grid approaches in medical imaging, from Implicit Neural Representations to Gaussian Splats.",
-  "startDate": "2026-10-01",
+  "startDate": "2026-10-01T13:30:00+02:00",
+  "endDate": "2026-10-01T18:00:00+02:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
-    "name": "MICCAI 2026",
+    "name": "Strasbourg Convention Center",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Strasbourg",
@@ -1435,6 +1636,31 @@
             if (link.getAttribute('href').slice(1) === current) {
                 link.classList.add('active');
             }
+        });
+    });
+
+    document.querySelectorAll('.session-toggle').forEach(toggle => {
+        const detail = document.getElementById(toggle.getAttribute('aria-controls'));
+        const panel = detail.querySelector('.session-panel');
+
+        // an open panel keeps an explicit height so it can animate shut, and so it
+        // stays correct when the content rewraps on resize
+        const syncHeight = () => {
+            if (detail.classList.contains('open')) {
+                panel.style.maxHeight = panel.scrollHeight + 'px';
+            }
+        };
+
+        if (window.ResizeObserver) {
+            new ResizeObserver(syncHeight).observe(panel.firstElementChild);
+        } else {
+            window.addEventListener('resize', syncHeight);
+        }
+
+        toggle.addEventListener('click', () => {
+            const isOpen = detail.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', String(isOpen));
+            panel.style.maxHeight = isOpen ? panel.scrollHeight + 'px' : '0px';
         });
     });
 </script>
